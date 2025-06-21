@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #374151;
+    background-image: url("60_F_605303105_4SE9xAEtVUrKqIVAIshxlWl6JJMZmxRH_cleanup.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.8); /* Added for better text readability */
+}
+
+h1, h2 {  /* Styles for both h1 and h2 (if needed) */
+    text-align: center;
+    color: #ff0000; /* Red color as in your theme */
+    margin-bottom: 30px;
+}
+
+/* Link Styles (adjust if you have links on the page) */
+a {
+    display: block;
+    margin: 10px 0;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #EF4444;
+    color: #fff;
+}
+
+/* Form Styles */
+.form-container {
+    background-color: white; /* Background for the form */
+    max-width: 400px;     /* Limit form width */
+    margin: 0 auto;         /* Center the form */
+    padding: 25px;        /* Add padding around form elements */
+    border: 1px solid #E5E7EB; /* Border from your theme */
+    border-radius: 8px;       /* Rounded corners */
+}
+
+.new-container{
+    width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block; /* Place labels above inputs */
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="date"], /* Added style for date input */
+textarea {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px; 
+    box-sizing: border-box; 
+}
+
+input[type="submit"] {
+    background-color: #EF4444;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #B91C1C;
+}
+
+
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgba(25, 41, 55, 0.8);
+        background-image: url("360_F_605303105_4SE9xAEtVUrKqIVAIshxlWl6JJMZmxRH_cleanup.jpg"); 
+    }
+
+    h1, h2 {
+        color: #F97316; /* Orange for dark mode */
+    }
+
+    .form-container {
+        background-color: #374151; /* Darker background for form in dark mode */
+    }
+
+    label, input[type="number"], input[type="date"], textarea {
+        color: #F3F4F6; /* Lighter text color for dark mode */
+    }
+
+    input[type="submit"]:hover {
+        background-color: #F97316; /* Orange hover for dark mode */
+    }
+}

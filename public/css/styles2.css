@@ -1,0 +1,119 @@
+/* Basic Reset */
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Font and Body Setup */
+    body {
+      font-family: 'Helvetica', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+    
+    /* Container for centralized layout */
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    
+    /* Header Styling */
+    header {
+      background: #990000;
+      color: #ffffff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #0779e4 3px solid;
+    }
+    header h1, nav a {
+      text-decoration: none;
+      font-size: 16px;
+    }
+    nav {
+      float: right;
+      margin-top: 10px;
+    }
+    .nav-item {
+      margin-left: 20px;
+      padding: 10px;
+      color: #ffffff;
+      background-color: transparent; /* Ensures no special background */
+    }
+    .nav-item:hover {
+      background-color: #bb0000;
+    }
+    
+    /* Hero Section Styling */
+    .hero {
+      background-color: #990000;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    /* Button Styling */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #fff;
+      color: #990000;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background-color: #e6e6e6;
+    }
+    
+    /* About Section Styling */
+    .about {
+      padding: 20px 0;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    
+    /* Footer Styling */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+    
+    /* Responsive Grid Layout */
+    .grid-2, .grid-3 {
+      display: grid;
+      grid-gap: 20px;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: 768px) {
+      .container, .grid-2, .grid-3 {
+        width: 95%;
+        grid-template-columns: 1fr;
+      }
+      header h1, nav a {
+        font-size: 14px;
+      }
+    }
+    
+    /* Accessibility Focus Indicators */
+    a, input[type="submit"], button, input[type="text"], input[type="email"], select {
+      outline: 3px solid transparent;
+      outline-offset: 2px;
+    }
+    a:focus, input[type="submit"]:focus, button:focus, input[type="text"]:focus, input[type="email"]:focus, select:focus {
+      outline: 3px solid #990000;
+    }

@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Bank - Donate</title>
+    <link rel="stylesheet" href="../../public/css/styles.css">
+    <script>
+        function populateCities() {
+            const citySelect = document.getElementById('city');
+            const cities = {
+                1: 'Karachi',
+                2: 'Lahore',
+                3: 'Islamabad',
+                4: 'Rawalpindi',
+                5: 'Faisalabad',
+                6: 'Multan',
+                7: 'Gujranwala',
+                8: 'Peshawar',
+                9: 'Quetta',
+                10: 'Sialkot'
+            };
+            for (const [cityID, cityName] of Object.entries(cities)) {
+                const option = document.createElement('option');
+                option.value = cityID;
+                option.textContent = cityName;
+                citySelect.appendChild(option);
+            }
+        }
+        function populateCenters(cityID) {
+            const centerSelect = document.getElementById('center');
+            centerSelect.innerHTML = '';
+            const centers = {
+                1: [
+                    { id: 1, name: 'Karachi Blood Center' },
+                    { id: 2, name: 'Karachi Medical Center' },
+                    { id: 3, name: 'Karachi Plasma Center' }
+                ],
+                2: [
+                    { id: 4, name: 'Lahore Blood Center' },
+                    { id: 5, name: 'Lahore Medical Center' },
+                    { id: 6, name: 'Lahore Plasma Center' }
+                ],
+                3: [
+                    { id: 7, name: 'Islamabad Blood Center' },
+                    { id: 8, name: 'Islamabad Medical Center' },
+                    { id: 9, name: 'Islamabad Plasma Center' }
+                ],
+                4: [
+                    { id: 10, name: 'Rawalpindi Blood Center' },
+                    { id: 11, name: 'Rawalpindi Medical Center' },
+                    { id: 12, name: 'Rawalpindi Plasma Center' }
+                ],
+                5: [
+                    { id: 13, name: 'Faisalabad Blood Center' },
+                    { id: 14, name: 'Faisalabad Medical Center' },
+                    { id: 15, name: 'Faisalabad Plasma Center' }
+                ],
+                6: [
+                    { id: 16, name: 'Multan Blood Center' },
+                    { id: 17, name: 'Multan Medical Center' },
+                    { id: 18, name: 'Multan Plasma Center' }
+                ],
+                7: [
+                    { id: 19, name: 'Gujranwala Blood Center' },
+                    { id: 20, name: 'Gujranwala Medical Center' },
+                    { id: 21, name: 'Gujranwala Plasma Center' }
+                ],
+                8: [
+                    { id: 22, name: 'Peshawar Blood Center' },
+                    { id: 23, name: 'Peshawar Medical Center' },
+                    { id: 24, name: 'Peshawar Plasma Center' }
+                ],
+                9: [
+                    { id: 25, name: 'Quetta Blood Center' },
+                    { id: 26, name: 'Quetta Medical Center' },
+                    { id: 27, name: 'Quetta Plasma Center' }
+                ],
+
+                10: [
+                    { id: 28, name: 'Sialkot Blood Center' },
+                    { id: 29, name: 'Sialkot Medical Center' },
+                    { id: 30, name: 'Sialkot Plasma Center' }
+                ]
+            };
+            const cityCenters = centers[cityID];
+            if (cityCenters) {
+                cityCenters.forEach(center => {
+                    const option = document.createElement('option');
+                    option.value = center.id;
+                    option.textContent = center.name;
+                    centerSelect.appendChild(option);
+                });
+            } else {
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = '--Select City First--';
+                centerSelect.appendChild(option);
+            }
+        }
+
+
+        window.onload = function() {
+            populateCities(); 
+            const citySelect = document.getElementById('city');
+            citySelect.addEventListener('change', function() {
+                const selectedCityID = this.value;
+                populateCenters(selectedCityID); 
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Donate Blood</h1>
+
+        <form action="donate.php" method="post">
+            <label for="donor_name">Donor Name:</label>
+            <input type="text" id="donor_name" name="donor_name" required><br><br>
+
+            <label for="city">City:</label>
+            <select id="city" name="city" required>
+                <option value="">--Select--</option>
+            </select><br><br>
+
+            <label for="center">Donation Center:</label>
+            <select id="center" name="center" required>
+                <option value="">--Select City First--</option>
+            </select><br><br>
+
+            <label for="donationType">Donation Type:</label>
+            <select id="donationType" name="donationType" required>
+                <option value="">--Select--</option>
+                <option value="Whole Blood">Whole Blood</option>
+                <option value="Platelets">Platelets</option>
+                <option value="Plasma">Plasma</option>
+            </select><br><br>
+
+            <label for="donationDate">Donation Date:</label>
+            <input type="date" id="donationDate" name="donationDate" required><br><br>
+
+            <input type="submit" value="Donate">
+        </form>
+    </div>
+</body>
+</html>
